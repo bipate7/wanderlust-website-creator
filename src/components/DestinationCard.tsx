@@ -9,10 +9,11 @@ interface DestinationCardProps {
   location: string;
   price: string;
   rating: number;
+  reviews: number; // Add the reviews prop to the interface
 }
 
 const DestinationCard: React.FC<DestinationCardProps> = ({ 
-  image, title, location, price, rating 
+  image, title, location, price, rating, reviews // Add reviews parameter
 }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden card-shadow hover-scale">
@@ -43,6 +44,10 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
           <Button variant="outline" className="text-travel-teal border-travel-teal hover:bg-travel-teal hover:text-white">
             View Details
           </Button>
+        </div>
+        {/* Display the reviews count */}
+        <div className="mt-2 text-sm text-gray-500">
+          {reviews} reviews
         </div>
       </div>
     </div>
