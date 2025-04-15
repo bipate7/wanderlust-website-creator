@@ -128,11 +128,12 @@ const DestinationsSection = ({ extended = false }: DestinationsSectionProps) => 
           {destinations.map((destination) => (
             <DestinationCard 
               key={destination.id}
-              name={destination.name}
+              title={destination.name}
+              location={destination.name.split(',')[1]?.trim() || ''}
               image={destination.image}
               rating={destination.rating}
+              price={`$${destination.price}`} // Convert the number to a string with $ prefix
               reviews={destination.reviews}
-              price={destination.price}
             />
           ))}
         </div>
