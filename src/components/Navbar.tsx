@@ -3,34 +3,54 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
     <nav className="bg-white bg-opacity-95 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#destinations" className="font-medium hover:text-travel-coral transition-colors">
+            <Link 
+              to="/destinations" 
+              className={`font-medium transition-colors ${
+                isActive('/destinations') ? 'text-travel-coral' : 'hover:text-travel-coral'
+              }`}
+            >
               Destinations
-            </a>
-            <a href="#experiences" className="font-medium hover:text-travel-coral transition-colors">
-              Experiences
-            </a>
-            <a href="#about" className="font-medium hover:text-travel-coral transition-colors">
+            </Link>
+            <Link 
+              to="/about" 
+              className={`font-medium transition-colors ${
+                isActive('/about') ? 'text-travel-coral' : 'hover:text-travel-coral'
+              }`}
+            >
               About Us
-            </a>
-            <a href="#contact" className="font-medium hover:text-travel-coral transition-colors">
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`font-medium transition-colors ${
+                isActive('/contact') ? 'text-travel-coral' : 'hover:text-travel-coral'
+              }`}
+            >
               Contact
-            </a>
+            </Link>
             <Button className="bg-travel-coral hover:bg-travel-coral/90 text-white">
               Book Now
             </Button>
@@ -49,34 +69,33 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 animate-fade-in">
             <div className="flex flex-col gap-3">
-              <a 
-                href="#destinations" 
-                className="py-2 px-4 hover:bg-gray-100 rounded-md font-medium"
+              <Link 
+                to="/destinations" 
+                className={`py-2 px-4 rounded-md font-medium ${
+                  isActive('/destinations') ? 'bg-travel-coral/10 text-travel-coral' : 'hover:bg-gray-100'
+                }`}
                 onClick={toggleMenu}
               >
                 Destinations
-              </a>
-              <a 
-                href="#experiences" 
-                className="py-2 px-4 hover:bg-gray-100 rounded-md font-medium"
-                onClick={toggleMenu}
-              >
-                Experiences
-              </a>
-              <a 
-                href="#about" 
-                className="py-2 px-4 hover:bg-gray-100 rounded-md font-medium"
+              </Link>
+              <Link 
+                to="/about" 
+                className={`py-2 px-4 rounded-md font-medium ${
+                  isActive('/about') ? 'bg-travel-coral/10 text-travel-coral' : 'hover:bg-gray-100'
+                }`}
                 onClick={toggleMenu}
               >
                 About Us
-              </a>
-              <a 
-                href="#contact" 
-                className="py-2 px-4 hover:bg-gray-100 rounded-md font-medium"
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`py-2 px-4 rounded-md font-medium ${
+                  isActive('/contact') ? 'bg-travel-coral/10 text-travel-coral' : 'hover:bg-gray-100'
+                }`}
                 onClick={toggleMenu}
               >
                 Contact
-              </a>
+              </Link>
               <Button className="bg-travel-coral hover:bg-travel-coral/90 text-white mt-2">
                 Book Now
               </Button>
