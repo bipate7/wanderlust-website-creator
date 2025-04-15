@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -19,7 +18,7 @@ import {
   Palmtree,
   Mountain,
   Ship,
-  Buildings,
+  Building,
   Utensils
 } from 'lucide-react';
 
@@ -148,7 +147,7 @@ const Index = () => {
             
             <div className="bg-white p-4 rounded-lg text-center hover-scale card-shadow flex flex-col items-center">
               <div className="w-14 h-14 rounded-full bg-travel-sand flex items-center justify-center mb-3">
-                <Buildings className="h-7 w-7 text-travel-coral" />
+                <Building className="h-7 w-7 text-travel-coral" />
               </div>
               <span className="font-medium">City Break</span>
             </div>
