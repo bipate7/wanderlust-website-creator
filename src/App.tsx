@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +8,9 @@ import Destinations from "./pages/Destinations";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +25,9 @@ const App = () => (
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
